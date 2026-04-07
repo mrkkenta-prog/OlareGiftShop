@@ -470,4 +470,27 @@ footer {
     .products-grid {
         grid-template-columns: 1fr;
     }
+    /* Advanced Map Container */
+.map-container-advanced {
+    height: 450px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    margin-bottom: 30px;
+}
+
+.location-btn {
+    background-color: #34A853;
+}
+
+.location-btn:hover {
+    background-color: #2d8e47;
+}
+
+@media (max-width: 768px) {
+    .map-container-advanced {
+        height: 350px;
+    }
+}
 }
