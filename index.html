@@ -3,13 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Olare Gift Shop - Authentic African Art & Handcrafted Treasures in Kenya">
-    <meta name="keywords" content="African art, curio shop, handcrafted, Kenya, gifts, traditional crafts">
-    <title>Olare Gift Shop - Authentic African Art & Crafts</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Olare Gift Shop - 25 years of authentic African art & handcrafted treasures. Traditional beadwork, wood carvings, masks & more. Worldwide shipping. Custom orders welcome.">
+    <meta name="keywords" content="African art Kenya, handmade wood carvings, Maasai beadwork, African masks, curio shop Kenya, authentic African crafts, custom wood sculptures, fair trade gifts">
+    <meta name="author" content="Olare Gift Shop">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Meta Tags (Social Media) -->
+    <meta property="og:title" content="Olare Gift Shop - Authentic African Art & Crafts">
+    <meta property="og:description" content="25 years of excellence in authentic African handcrafted treasures. Traditional beadwork, wood carvings, masks & more.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.olaregiftshop.com">
+    <meta property="og:image" content="images/og-image.jpg">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Olare Gift Shop - Authentic African Art & Crafts">
+    <meta name="twitter:description" content="25 years of excellence in authentic African handcrafted treasures.">
+    <meta name="twitter:image" content="images/twitter-image.jpg">
+    
+    <title>Olare Gift Shop - Authentic African Art & Crafts | 25 Years of Excellence</title>
+    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Loading Screen -->
+    <div id="loader" class="loader">
+        <div class="spinner"></div>
+        <p data-translate="loading">Loading...</p>
+    </div>
+
     <!-- Top Bar -->
     <div class="top-bar">
         <div class="container">
@@ -23,11 +48,25 @@
                     <a href="mailto:leonardolekenta@gmail.com" class="contact-link">leonardolekenta@gmail.com</a>
                 </span>
             </div>
-            <div class="social-links">
-                <a href="https://facebook.com" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
-                <a href="https://instagram.com" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://twitter.com" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20your%20products" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+            <div class="top-right">
+                <!-- Language Selector -->
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="sw">Swahili</option>
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
+                        <option value="de">Deutsch</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <div class="social-links">
+                    <a href="#contact" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#contact" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#contact" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/254721761014?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
             </div>
         </div>
     </div>
@@ -40,10 +79,13 @@
                 <i class="fas fa-bars"></i>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#products">Products</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" data-translate="nav_home">Home</a></li>
+                <li><a href="#about" data-translate="nav_about">About</a></li>
+                <li><a href="#products" data-translate="nav_products">Products</a></li>
+                <li><a href="blog.html" data-translate="nav_blog">Blog</a></li>
+                <li><a href="faq.html" data-translate="nav_faq">FAQ</a></li>
+                <li><a href="reviews.html" data-translate="nav_reviews">Reviews</a></li>
+                <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -51,25 +93,141 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Welcome to Olare Gift Shop</h1>
-            <p>Authentic African Art & Handcrafted Treasures</p>
-            <a href="#products" class="btn">Explore Our Collection</a>
+            <div class="hero-badge">
+                <i class="fas fa-award"></i>
+                <span data-translate="hero_badge">25 Years of Excellence</span>
+            </div>
+            <h1 data-translate="hero_title">Welcome to Olare Gift Shop</h1>
+            <p data-translate="hero_subtitle">Authentic African Art & Handcrafted Treasures</p>
+            <p class="hero-tagline" data-translate="hero_tagline">Preserving Tradition, Celebrating Craftsmanship</p>
+            <div class="hero-buttons">
+                <a href="#products" class="btn btn-primary" data-translate="hero_btn_explore">Explore Our Collection</a>
+                <a href="#contact" class="btn btn-secondary" data-translate="hero_btn_custom">Custom Orders</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges Section -->
+    <section class="trust-badges">
+        <div class="container">
+            <div class="badges-grid">
+                <div class="badge-item">
+                    <i class="fas fa-award"></i>
+                    <h4 data-translate="badge_experience">25+ Years Experience</h4>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-handshake"></i>
+                    <h4 data-translate="badge_fair_trade">Fair Trade Certified</h4>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-shipping-fast"></i>
+                    <h4 data-translate="badge_shipping">Worldwide Shipping</h4>
+                </div>
+                <div class="badge-item">
+                    <i class="fas fa-certificate"></i>
+                    <h4 data-translate="badge_authentic">100% Authentic</h4>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured/Bestsellers Section -->
+    <section class="featured-products">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title" data-translate="featured_title">Featured Wood Carvings</h2>
+                <p class="section-subtitle" data-translate="featured_subtitle">Our Most Popular Handcrafted Masterpieces</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card featured">
+                    <div class="product-badge" data-translate="badge_bestseller">Bestseller</div>
+                    <div class="product-image">
+                        <i class="fas fa-chess-rook"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-translate="product_wood_traditional">Traditional Wood Carvings</h3>
+                        <p class="product-category" data-translate="category_wood">Wood Sculptures</p>
+                        <p data-translate="product_wood_desc">Exquisite hand-carved wooden sculptures showcasing African artistry and tradition.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Traditional%20Wood%20Carvings" target="_blank" class="btn btn-small" data-translate="btn_inquire">Inquire on WhatsApp</a>
+                            <a href="#contact" class="btn btn-outline btn-small" data-translate="btn_quote">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card featured">
+                    <div class="product-badge" data-translate="badge_popular">Popular</div>
+                    <div class="product-image">
+                        <i class="fas fa-elephant"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-translate="product_animal">Safari Animal Sculptures</h3>
+                        <p class="product-category" data-translate="category_wood">Wood Sculptures</p>
+                        <p data-translate="product_animal_desc">Beautiful wildlife carvings including elephants, lions, giraffes and more.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Safari%20Animal%20Sculptures" target="_blank" class="btn btn-small" data-translate="btn_inquire">Inquire on WhatsApp</a>
+                            <a href="#contact" class="btn btn-outline btn-small" data-translate="btn_quote">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card featured">
+                    <div class="product-badge" data-translate="badge_trending">Trending</div>
+                    <div class="product-image">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3 data-translate="product_functional">Decorative & Functional Art</h3>
+                        <p class="product-category" data-translate="category_wood">Wood Sculptures</p>
+                        <p data-translate="product_functional_desc">Hand-carved bowls, serving sets, and decorative pieces for your home.</p>
+                        <div class="product-actions">
+                            <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Decorative%20Wood%20Art" target="_blank" class="btn btn-small" data-translate="btn_inquire">Inquire on WhatsApp</a>
+                            <a href="#contact" class="btn btn-outline btn-small" data-translate="btn_quote">Get Quote</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- About Section -->
     <section class="about" id="about">
         <div class="container">
-            <h2 class="section-title">About Us</h2>
             <div class="about-content">
                 <div class="about-text">
-                    <p>Welcome to <strong>Olare Gift Shop</strong>, your premier destination for authentic African art and handcrafted treasures. We are dedicated to preserving and sharing the rich cultural heritage of Africa through our carefully curated collection of traditional crafts.</p>
-                    <p>Our shop features a wide range of unique items including traditional beadwork, hand-carved wooden sculptures, authentic African masks, colorful textiles, and much more. Each piece tells a story and represents the skilled craftsmanship of local artisans.</p>
-                    <p>We work directly with local communities to ensure fair trade practices and support traditional craftspeople. When you purchase from Olare Gift Shop, you're not just buying art – you're supporting entire communities and helping preserve ancient traditions for future generations.</p>
-                    <p>Visit us today and discover the beauty of African artistry!</p>
+                    <h2 class="section-title" data-translate="about_title">Our Story</h2>
+                    <div class="experience-badge">
+                        <span class="experience-number">25+</span>
+                        <span class="experience-text" data-translate="about_years">Years of Excellence</span>
+                    </div>
+                    <p data-translate="about_p1">Welcome to <strong>Olare Gift Shop</strong>, where tradition meets craftsmanship. For over <strong>25 years</strong>, we have been your premier destination for authentic African art and handcrafted treasures, preserving and sharing the rich cultural heritage of Africa through our carefully curated collection.</p>
+                    <p data-translate="about_p2">Our journey began with a simple mission: to connect the world with the extraordinary talent of African artisans. Each piece in our collection tells a unique story, representing generations of skilled craftsmanship passed down through families and communities.</p>
+                    <p data-translate="about_p3">We work directly with local artisan communities, ensuring fair trade practices and supporting traditional craftspeople. When you purchase from Olare Gift Shop, you're not just buying art – you're supporting entire families, preserving ancient traditions, and helping keep cultural heritage alive for future generations.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-translate="about_feature1">Direct partnerships with artisans</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-translate="about_feature2">Fair trade & ethical sourcing</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-translate="about_feature3">100% authentic handmade items</span>
+                        </div>
+                        <div class="about-feature-item">
+                            <i class="fas fa-check-circle"></i>
+                            <span data-translate="about_feature4">Supporting local communities</span>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="btn btn-primary" data-translate="about_btn">Visit Our Shop</a>
                 </div>
                 <div class="about-image">
                     <i class="fas fa-store"></i>
+                    <div class="about-overlay">
+                        <h3 data-translate="about_overlay">Crafting Excellence Since 1999</h3>
+                    </div>
                 </div>
             </div>
         </div>
@@ -78,16 +236,20 @@
     <!-- Products Section -->
     <section class="products" id="products">
         <div class="container">
-            <h2 class="section-title">Our Products</h2>
+            <div class="section-header">
+                <h2 class="section-title" data-translate="products_title">Our Collection</h2>
+                <p class="section-subtitle" data-translate="products_subtitle">Explore Our Wide Range of Authentic African Crafts</p>
+            </div>
+            
             <div class="products-grid">
                 <div class="product-card">
                     <div class="product-image">
                         <i class="fas fa-gem"></i>
                     </div>
                     <div class="product-info">
-                        <h3>Traditional Beadwork</h3>
-                        <p>Handcrafted beaded jewelry and accessories featuring authentic African designs and patterns.</p>
-                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Traditional%20Beadwork" target="_blank" class="btn">Inquire on WhatsApp</a>
+                        <h3 data-translate="product_beadwork">Traditional Beadwork</h3>
+                        <p data-translate="product_beadwork_desc">Handcrafted beaded jewelry and accessories featuring authentic African designs and patterns.</p>
+                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Traditional%20Beadwork" target="_blank" class="btn btn-small" data-translate="btn_inquire_wa">Inquire on WhatsApp</a>
                     </div>
                 </div>
                 <div class="product-card">
@@ -95,9 +257,9 @@
                         <i class="fas fa-masks-theater"></i>
                     </div>
                     <div class="product-info">
-                        <h3>African Masks</h3>
-                        <p>Authentic hand-carved wooden masks representing various African tribes and traditions.</p>
-                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20African%20Masks" target="_blank" class="btn">Inquire on WhatsApp</a>
+                        <h3 data-translate="product_masks">African Masks</h3>
+                        <p data-translate="product_masks_desc">Authentic hand-carved wooden masks representing various African tribes and traditions.</p>
+                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20African%20Masks" target="_blank" class="btn btn-small" data-translate="btn_inquire_wa">Inquire on WhatsApp</a>
                     </div>
                 </div>
                 <div class="product-card">
@@ -105,9 +267,9 @@
                         <i class="fas fa-chess-rook"></i>
                     </div>
                     <div class="product-info">
-                        <h3>Wood Carvings</h3>
-                        <p>Beautiful hand-carved wooden sculptures and decorative pieces by skilled artisans.</p>
-                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Wood%20Carvings" target="_blank" class="btn">Inquire on WhatsApp</a>
+                        <h3 data-translate="product_carvings">Wood Carvings</h3>
+                        <p data-translate="product_carvings_desc">Beautiful hand-carved wooden sculptures and decorative pieces by skilled artisans.</p>
+                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Wood%20Carvings" target="_blank" class="btn btn-small" data-translate="btn_inquire_wa">Inquire on WhatsApp</a>
                     </div>
                 </div>
                 <div class="product-card">
@@ -115,9 +277,9 @@
                         <i class="fas fa-tshirt"></i>
                     </div>
                     <div class="product-info">
-                        <h3>Traditional Textiles</h3>
-                        <p>Colorful fabrics, blankets, and clothing featuring traditional African patterns and designs.</p>
-                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Traditional%20Textiles" target="_blank" class="btn">Inquire on WhatsApp</a>
+                        <h3 data-translate="product_textiles">Traditional Textiles</h3>
+                        <p data-translate="product_textiles_desc">Colorful fabrics, blankets, and clothing featuring traditional African patterns and designs.</p>
+                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Traditional%20Textiles" target="_blank" class="btn btn-small" data-translate="btn_inquire_wa">Inquire on WhatsApp</a>
                     </div>
                 </div>
                 <div class="product-card">
@@ -125,9 +287,9 @@
                         <i class="fas fa-drum"></i>
                     </div>
                     <div class="product-info">
-                        <h3>Musical Instruments</h3>
-                        <p>Traditional African drums, shakers, and other handcrafted musical instruments.</p>
-                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Musical%20Instruments" target="_blank" class="btn">Inquire on WhatsApp</a>
+                        <h3 data-translate="product_instruments">Musical Instruments</h3>
+                        <p data-translate="product_instruments_desc">Traditional African drums, shakers, and other handcrafted musical instruments.</p>
+                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Musical%20Instruments" target="_blank" class="btn btn-small" data-translate="btn_inquire_wa">Inquire on WhatsApp</a>
                     </div>
                 </div>
                 <div class="product-card">
@@ -135,10 +297,76 @@
                         <i class="fas fa-shopping-basket"></i>
                     </div>
                     <div class="product-info">
-                        <h3>Handwoven Baskets</h3>
-                        <p>Beautiful handwoven baskets and containers in various sizes and designs.</p>
-                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Handwoven%20Baskets" target="_blank" class="btn">Inquire on WhatsApp</a>
+                        <h3 data-translate="product_baskets">Handwoven Baskets</h3>
+                        <p data-translate="product_baskets_desc">Beautiful handwoven baskets and containers in various sizes and designs.</p>
+                        <a href="https://wa.me/254721761014?text=Hello%2C%20I%20am%20interested%20in%20Handwoven%20Baskets" target="_blank" class="btn btn-small" data-translate="btn_inquire_wa">Inquire on WhatsApp</a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Custom Orders Section -->
+    <section class="custom-orders">
+        <div class="container">
+            <div class="custom-content">
+                <div class="custom-text">
+                    <h2 data-translate="custom_title">Have Something Special in Mind?</h2>
+                    <p data-translate="custom_p1">We specialize in custom-made pieces tailored to your exact specifications. Our skilled artisans can bring your vision to life.</p>
+                    <ul class="custom-features">
+                        <li><i class="fas fa-check"></i> <span data-translate="custom_feature1">Personalized designs</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="custom_feature2">Choice of materials & sizes</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="custom_feature3">Expert craftsmanship</span></li>
+                        <li><i class="fas fa-check"></i> <span data-translate="custom_feature4">Direct artisan collaboration</span></li>
+                    </ul>
+                    <p class="custom-note" data-translate="custom_note"><strong>Note:</strong> Custom orders typically require 2-4 weeks. Contact us for a personalized quote.</p>
+                    <a href="https://wa.me/254721761014?text=Hello%2C%20I%20would%20like%20to%20discuss%20a%20custom%20order" target="_blank" class="btn btn-primary" data-translate="custom_btn">
+                        <i class="fab fa-whatsapp"></i> Discuss Your Custom Order
+                    </a>
+                </div>
+                <div class="custom-image">
+                    <i class="fas fa-pencil-ruler"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Payment & Shipping Section -->
+    <section class="payment-shipping">
+        <div class="container">
+            <div class="ps-grid">
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-credit-card"></i>
+                    </div>
+                    <h3 data-translate="payment_title">Payment Methods</h3>
+                    <p data-translate="payment_subtitle">We Accept Multiple Payment Options</p>
+                    <ul class="ps-list">
+                        <li><i class="fas fa-check-circle"></i> M-Pesa</li>
+                        <li><i class="fas fa-check-circle"></i> Credit/Debit Cards</li>
+                        <li><i class="fas fa-check-circle"></i> PayPal</li>
+                        <li><i class="fas fa-check-circle"></i> Bank Transfer</li>
+                        <li><i class="fas fa-check-circle"></i> Cash (In-Store)</li>
+                    </ul>
+                    <div class="payment-icons">
+                        <i class="fab fa-cc-visa"></i>
+                        <i class="fab fa-cc-mastercard"></i>
+                        <i class="fab fa-cc-paypal"></i>
+                    </div>
+                </div>
+                <div class="ps-card">
+                    <div class="ps-icon">
+                        <i class="fas fa-shipping-fast"></i>
+                    </div>
+                    <h3 data-translate="shipping_title">Worldwide Shipping</h3>
+                    <p data-translate="shipping_subtitle">We Ship to Your Doorstep Anywhere</p>
+                    <ul class="ps-list">
+                        <li><i class="fas fa-globe-africa"></i> <span data-translate="shipping_kenya">Kenya: 3-5 business days</span></li>
+                        <li><i class="fas fa-globe"></i> <span data-translate="shipping_intl">International: 7-21 days</span></li>
+                        <li><i class="fas fa-box"></i> <span data-translate="shipping_secure">Secure packaging guaranteed</span></li>
+                        <li><i class="fas fa-truck"></i> <span data-translate="shipping_tracking">Tracking available</span></li>
+                    </ul>
+                    <p class="ps-note" data-translate="shipping_note">Shipping costs vary by destination and order size. Contact us for a quote.</p>
                 </div>
             </div>
         </div>
@@ -147,28 +375,77 @@
     <!-- Features Section -->
     <section class="features">
         <div class="container">
-            <h2 class="section-title" style="color: white;">Why Choose Us</h2>
+            <h2 class="section-title" style="color: white;" data-translate="features_title">Why Choose Olare Gift Shop</h2>
             <div class="features-grid">
                 <div class="feature-item">
                     <i class="fas fa-certificate"></i>
-                    <h3>Authentic Products</h3>
-                    <p>All our items are genuine handcrafted pieces made by local artisans using traditional methods.</p>
+                    <h3 data-translate="feature_authentic">100% Authentic Products</h3>
+                    <p data-translate="feature_authentic_desc">All our items are genuine handcrafted pieces made by local artisans using traditional methods passed down through generations.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-handshake"></i>
-                    <h3>Fair Trade</h3>
-                    <p>We work directly with communities to ensure fair compensation and support local economies.</p>
+                    <h3 data-translate="feature_fair">Fair Trade Practices</h3>
+                    <p data-translate="feature_fair_desc">We work directly with artisan communities to ensure fair compensation, ethical sourcing, and support for local economies.</p>
                 </div>
                 <div class="feature-item">
-                    <i class="fas fa-shipping-fast"></i>
-                    <h3>Worldwide Shipping</h3>
-                    <p>We ship our beautiful African crafts to customers all around the world.</p>
+                    <i class="fas fa-award"></i>
+                    <h3 data-translate="feature_experience">25 Years Experience</h3>
+                    <p data-translate="feature_experience_desc">Over two decades of expertise in African art and crafts, serving customers worldwide with dedication and excellence.</p>
                 </div>
                 <div class="feature-item">
                     <i class="fas fa-heart"></i>
-                    <h3>Quality Guaranteed</h3>
-                    <p>Each piece is carefully inspected to ensure the highest quality and craftsmanship.</p>
+                    <h3 data-translate="feature_quality">Quality Guaranteed</h3>
+                    <p data-translate="feature_quality_desc">Each piece is carefully inspected to ensure the highest quality craftsmanship. We stand behind every product we sell.</p>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter">
+        <div class="container">
+            <div class="newsletter-content">
+                <div class="newsletter-icon">
+                    <i class="fas fa-envelope-open-text"></i>
+                </div>
+                <div class="newsletter-text">
+                    <h2 data-translate="newsletter_title">Stay Updated!</h2>
+                    <p data-translate="newsletter_subtitle">Subscribe for exclusive offers, new arrivals, and cultural insights</p>
+                </div>
+                <form id="newsletterForm" class="newsletter-form">
+                    <input type="email" id="newsletter-email" placeholder="Enter your email address" data-translate-placeholder="newsletter_placeholder" required>
+                    <button type="submit" class="btn" data-translate="newsletter_btn">Subscribe</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+        <div class="container">
+            <h2 class="section-title" data-translate="map_title">Find Us Here</h2>
+            <div class="map-container">
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.076364444294!2d35.7427611!3d-1.1673324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182c1a06ba8a3cb7%3A0xf035dca0aac7e2fc!2sOlare%20Gift%20Shop!5e0!3m2!1sen!2ske!4v1649340000000!5m2!1sen!2ske" 
+                    width="100%" 
+                    height="450" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <div class="map-buttons">
+                <a href="https://www.google.com/maps/place/Olare+Gift+Shop/@-1.1673324,35.7427611,689m/data=!3m2!1e3!4b1!4m6!3m5!1s0x182c1a06ba8a3cb7:0xf035dca0aac7e2fc!8m2!3d-1.1673324!4d35.7453414!16s%2Fg%2F11gbxb30nm?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D" 
+                   target="_blank" 
+                   class="btn map-btn">
+                   <i class="fas fa-map-marker-alt"></i> <span data-translate="map_btn_open">Open in Google Maps</span>
+                </a>
+                <a href="https://www.google.com/maps/dir/?api=1&destination=-1.1673324,35.7453414" 
+                   target="_blank" 
+                   class="btn map-btn directions-btn">
+                   <i class="fas fa-directions"></i> <span data-translate="map_btn_directions">Get Directions</span>
+                </a>
             </div>
         </div>
     </section>
@@ -176,49 +453,123 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Contact Us</h2>
+            <h2 class="section-title" data-translate="contact_title">Contact Us</h2>
             <div class="contact-content">
-                <div class="contact-form">
-                    <form id="contactForm">
-                        <input type="text" id="name" placeholder="Your Name" required>
-                        <input type="email" id="email" placeholder="Your Email" required>
-                        <input type="tel" id="phone" placeholder="Your Phone">
-                        <textarea id="message" placeholder="Your Message" required></textarea>
-                        <button type="submit">Send Message via WhatsApp</button>
+                <div class="contact-form-wrapper">
+                    <h3 data-translate="contact_form_title">Send Us a Message</h3>
+                    <form id="contactForm" class="contact-form">
+                        <input type="text" id="name" placeholder="Your Name" data-translate-placeholder="contact_name" required>
+                        <input type="email" id="email" placeholder="Your Email" data-translate-placeholder="contact_email" required>
+                        <input type="tel" id="phone" placeholder="Your Phone" data-translate-placeholder="contact_phone">
+                        <textarea id="message" placeholder="Your Message" data-translate-placeholder="contact_message" required></textarea>
+                        <button type="submit" data-translate="contact_send">Send Message</button>
                     </form>
                 </div>
                 <div class="contact-info-section">
+                    <h3 data-translate="contact_info_title">Get in Touch</h3>
                     <div class="contact-item">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <h3>Visit Us</h3>
-        <!-- Map Section -->
-<section class="map-section">
-    <div class="container">
-        <h2 class="section-title">Find Us Here</h2>
-        <div class="map-container">
-            <iframe 
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3989.076364444294!2d35.7427611!3d-1.1673324!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x182c1a06ba8a3cb7%3A0xf035dca0aac7e2fc!2sOlare%20Gift%20Shop!5e0!3m2!1sen!2ske!4v1649340000000!5m2!1sen!2ske" 
-                width="100%" 
-                height="450" 
-                style="border:0;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-            </iframe>
+                            <h4 data-translate="contact_visit">Visit Us</h4>
+                            <p>
+                                <a href="https://www.google.com/maps/place/Olare+Gift+Shop/@-1.1673324,35.7427611,689m/data=!3m2!1e3!4b1!4m6!3m5!1s0x182c1a06ba8a3cb7:0xf035dca0aac7e2fc!8m2!3d-1.1673324!4d35.7453414!16s%2Fg%2F11gbxb30nm?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D" 
+                                   target="_blank" 
+                                   class="location-link">
+                                   Olare Gift Shop, Kenya
+                                   <br><small data-translate="contact_map_link">Click to view on Google Maps</small>
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-translate="contact_call">Call Us</h4>
+                            <p><a href="tel:+254721761014" class="contact-link-dark">+254721761014</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 data-translate="contact_email_title">Email Us</h4>
+                            <p><a href="mailto:leonardolekenta@gmail.com" class="contact-link-dark">leonardolekenta@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4 data-translate="contact_whatsapp">WhatsApp Us</h4>
+                            <p>
+                                <a href="https://wa.me/254721761014?text=Hello%2C%20I%20would%20like%20to%20know%20more%20about%20your%20products" 
+                                   target="_blank" 
+                                   class="whatsapp-link" data-translate="contact_whatsapp_link">
+                                   Chat with us on WhatsApp
+                                </a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h4 data-translate="contact_hours">Business Hours</h4>
+                            <p data-translate="contact_hours_weekday">Monday - Saturday: 9:00 AM - 6:00 PM</p>
+                            <p data-translate="contact_hours_sunday">Sunday: 10:00 AM - 4:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="map-buttons">
-            <a href="https://www.google.com/maps/place/Olare+Gift+Shop/@-1.1673324,35.7427611,689m/data=!3m2!1e3!4b1!4m6!3m5!1s0x182c1a06ba8a3cb7:0xf035dca0aac7e2fc!8m2!3d-1.1673324!4d35.7453414!16s%2Fg%2F11gbxb30nm?entry=ttu&g_ep=EgoyMDI2MDQwNS4wIKXMDSoASAFQAw%3D%3D" 
-               target="_blank" 
-               class="btn map-btn">
-               <i class="fas fa-map-marker-alt"></i> Open in Google Maps
-            </a>
-            <a href="https://www.google.com/maps/dir/?api=1&destination=-1.1673324,35.7453414" 
-               target="_blank" 
-               class="btn map-btn directions-btn">
-               <i class="fas fa-directions"></i> Get Directions
-            </a>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Olare Gift Shop</h3>
+                <p data-translate="footer_about">Your premier destination for authentic African art and handcrafted treasures. Celebrating 25 years of excellence in preserving African cultural heritage.</p>
+                <div class="footer-social">
+                    <a href="#contact" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#contact" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#contact" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/254721761014" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_quick_links">Quick Links</h3>
+                <ul>
+                    <li><a href="#home" data-translate="nav_home">Home</a></li>
+                    <li><a href="#about" data-translate="nav_about">About Us</a></li>
+                    <li><a href="#products" data-translate="nav_products">Products</a></li>
+                    <li><a href="blog.html" data-translate="nav_blog">Blog</a></li>
+                    <li><a href="faq.html" data-translate="nav_faq">FAQ</a></li>
+                    <li><a href="reviews.html" data-translate="nav_reviews">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_contact">Contact Info</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> <a href="tel:+254721761014">+254721761014</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:leonardolekenta@gmail.com">leonardolekenta@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Olare+Gift+Shop/@-1.1673324,35.7427611,689m" target="_blank" data-translate="footer_map">View on Google Maps</a></li>
+                    <li><i class="fas fa-clock"></i> <span data-translate="footer_hours">Mon-Sat: 9AM-6PM, Sun: 10AM-4PM</span></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3 data-translate="footer_services">Our Services</h3>
+                <ul>
+                    <li data-translate="footer_service1">Custom Orders</li>
+                    <li data-translate="footer_service2">Worldwide Shipping</li>
+                    <li data-translate="footer_service3">Bulk Orders</li>
+                    <li data-translate="footer_service4">Gift Wrapping</li>
+                    <li data-translate="footer_service5">Consultations</li>
+                </ul>
+            </div>
         </div>
-    </div>
-</section>
-                            
+        <div class="footer-bottom">
+            <p>&copy; 2024 Olare Gift Shop. <span data-translate="footer_rights">All rights reserved.</span> | <span data-translate="footer_crafted">Crafted with</span> <i class="fas fa-heart" style="color: #ff6b6b;"></i> <span data-translate="footer_africa">in Africa</span></p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
