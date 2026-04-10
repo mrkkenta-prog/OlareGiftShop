@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag - Olare Gift Shop</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="location-bar">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="headerLocation">Kenya</span>
+            </div>
+            <div class="header-links">
+                <a href="blog.html">Stories</a>
+                <a href="faq.html">Help</a>
+                <a href="reviews.html">Reviews</a>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="home.html">OLARE</a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Stories</a></li>
+                <li><a href="home.html#about">About</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search" class="search-input">
+                </div>
+                
+                <a href="cart.html" class="cart-icon active">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Cart Page Content -->
+    <section class="cart-page">
+        <div class="cart-container">
+            
+            <!-- Cart Header -->
+            <div class="cart-header">
+                <h1>BAG</h1>
+            </div>
+
+            <!-- Cart Content -->
+            <div class="cart-content">
+                
+                <!-- Cart Items (Left Side) -->
+                <div class="cart-items" id="cartItemsContainer">
+                    <!-- Empty cart message -->
+                    <div class="empty-cart" id="emptyCartMessage">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h2>Your bag is empty</h2>
+                        <p>Add some products to get started</p>
+                        <a href="shop.html" class="shop-now-btn">Shop Now</a>
+                    </div>
+
+                    <!-- Cart items will be inserted here by JavaScript -->
+                </div>
+
+                <!-- Order Summary (Right Side) -->
+                <div class="order-summary" id="orderSummary" style="display: none;">
+                    <h2>Summary</h2>
+                    
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="subtotal">KSh 0</span>
+                    </div>
+                    
+                    <div class="summary-row">
+                        <span>Estimated Delivery & Handling</span>
+                        <span id="shipping">Free</span>
+                    </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <div class="summary-row total">
+                        <span>Total</span>
+                        <span id="total">KSh 0</span>
+                    </div>
+                    
+                    <div class="summary-divider"></div>
+                    
+                    <button class="checkout-btn" onclick="proceedToCheckout()">
+                        Member Checkout
+                    </button>
+                    
+                    <p class="guest-checkout">
+                        Or <a href="#" onclick="guestCheckout()">checkout as guest</a>
+                    </p>
+                </div>
+
+            </div>
+
+            <!-- Favorites Section -->
+            <div class="favorites-section">
+                <h2>Favourites</h2>
+                <p>Want to save these items? Add them to your favourites.</p>
+            </div>
+
+            <!-- You Might Also Like -->
+            <div class="related-products">
+                <h2>You Might Also Like</h2>
+                <div class="related-grid">
+                    <div class="related-item">
+                        <div class="related-image">
+                            <i class="fas fa-gem"></i>
+                        </div>
+                        <p class="related-name">Beaded Earrings</p>
+                        <p class="related-price">KSh 800</p>
+                    </div>
+                    
+                    <div class="related-item">
+                        <div class="related-image">
+                            <i class="fas fa-chess-rook"></i>
+                        </div>
+                        <p class="related-name">Small Carving</p>
+                        <p class="related-price">KSh 1,200</p>
+                    </div>
+                    
+                    <div class="related-item">
+                        <div class="related-image">
+                            <i class="fas fa-shopping-basket"></i>
+                        </div>
+                        <p class="related-name">Mini Basket</p>
+                        <p class="related-price">KSh 900</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SHOP</h4>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=beadwork">Beadwork</a></li>
+                    <li><a href="shop.html?category=wood">Wood Carvings</a></li>
+                    <li><a href="shop.html?category=masks">Masks</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#shipping">Shipping</a></li>
+                    <li><a href="#returns">Returns</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>ABOUT</h4>
+                <ul>
+                    <li><a href="blog.html">Our Story</a></li>
+                    <li><a href="blog.html">Artisans</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>CONTACT</h4>
+                <ul>
+                    <li><a href="tel:+254721761014">+254 721 761 014</a></li>
+                    <li><a href="mailto:leonardolekenta@gmail.com">leonardolekenta@gmail.com</a></li>
+                    <li><a href="https://wa.me/254721761014" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Kenya</span>
+            </div>
+            <p>&copy; 2024 Olare Gift Shop. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
