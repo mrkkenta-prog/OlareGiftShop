@@ -1,0 +1,1103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Olare Gift Shop Customer Reviews - Read testimonials from satisfied customers worldwide. Share your experience with our authentic African art and crafts.">
+    <meta name="keywords" content="customer reviews, testimonials, African art reviews, Olare Gift Shop feedback, customer satisfaction">
+    
+    <title>Customer Reviews - Olare Gift Shop | Share Your Experience</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* Reviews-specific styles */
+        .reviews-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 100px 20px 60px;
+            color: white;
+            text-align: center;
+        }
+        
+        .reviews-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .reviews-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .reviews-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        /* Overall Rating Summary */
+        .rating-summary {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 40px;
+            align-items: center;
+        }
+        
+        .rating-overview {
+            text-align: center;
+        }
+        
+        .rating-number {
+            font-size: 64px;
+            font-weight: bold;
+            color: var(--primary-color);
+            line-height: 1;
+            margin-bottom: 10px;
+        }
+        
+        .rating-stars {
+            font-size: 32px;
+            color: var(--accent-color);
+            margin-bottom: 10px;
+        }
+        
+        .rating-count {
+            color: var(--text-color);
+            font-size: 16px;
+        }
+        
+        .rating-bars {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+        
+        .rating-bar-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .rating-bar-label {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            min-width: 80px;
+            font-size: 14px;
+        }
+        
+        .rating-bar-label i {
+            color: var(--accent-color);
+        }
+        
+        .rating-bar-container {
+            flex: 1;
+            height: 8px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        
+        .rating-bar-fill {
+            height: 100%;
+            background: var(--accent-color);
+            transition: width 1s ease;
+        }
+        
+        .rating-bar-count {
+            min-width: 40px;
+            text-align: right;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+        
+        /* Write Review Section */
+        .write-review-section {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            border-radius: 15px;
+            padding: 40px;
+            color: white;
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .write-review-section h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        
+        .write-review-section p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        /* Review Form */
+        .review-form {
+            background: white;
+            border-radius: 15px;
+            padding: 40px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            margin-bottom: 50px;
+            display: none;
+        }
+        
+        .review-form.active {
+            display: block;
+        }
+        
+        .review-form h3 {
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            font-size: 24px;
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 15px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+        
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        
+        .star-rating {
+            display: flex;
+            gap: 10px;
+            font-size: 32px;
+        }
+        
+        .star-rating i {
+            cursor: pointer;
+            color: #ddd;
+            transition: color 0.2s;
+        }
+        
+        .star-rating i.active,
+        .star-rating i:hover {
+            color: var(--accent-color);
+        }
+        
+        .review-note {
+            background: var(--light-color);
+            padding: 15px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-color);
+            margin-top: 20px;
+            font-size: 14px;
+            color: var(--text-color);
+        }
+        
+        /* Filter & Sort */
+        .reviews-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .reviews-controls select {
+            padding: 10px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+        
+        /* Review Cards */
+        .reviews-list {
+            display: flex;
+            flex-direction: column;
+            gap: 25px;
+        }
+        
+        .review-card {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+            transition: all 0.3s;
+        }
+        
+        .review-card:hover {
+            box-shadow: 0 5px 20px rgba(0,0,0,0.12);
+            transform: translateY(-2px);
+        }
+        
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .reviewer-info {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .reviewer-details h4 {
+            color: var(--dark-color);
+            margin-bottom: 5px;
+            font-size: 18px;
+        }
+        
+        .reviewer-location {
+            color: var(--text-color);
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        
+        .review-rating {
+            display: flex;
+            gap: 5px;
+            font-size: 18px;
+            color: var(--accent-color);
+        }
+        
+        .review-date {
+            color: var(--text-color);
+            font-size: 14px;
+            margin-top: 5px;
+        }
+        
+        .review-content {
+            margin-bottom: 20px;
+        }
+        
+        .review-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        .review-text {
+            color: var(--text-color);
+            line-height: 1.8;
+            font-size: 15px;
+        }
+        
+        .review-product {
+            background: var(--light-color);
+            padding: 12px 15px;
+            border-radius: 8px;
+            font-size: 14px;
+            color: var(--text-color);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .review-product i {
+            color: var(--primary-color);
+        }
+        
+        .verified-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            background: var(--success-color);
+            color: white;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .review-helpful {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e0e0e0;
+        }
+        
+        .helpful-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            background: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: all 0.3s;
+        }
+        
+        .helpful-btn:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .helpful-btn i {
+            font-size: 16px;
+        }
+        
+        /* Empty State */
+        .no-reviews {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--text-color);
+        }
+        
+        .no-reviews i {
+            font-size: 80px;
+            color: var(--primary-color);
+            opacity: 0.3;
+            margin-bottom: 20px;
+        }
+        
+        .no-reviews h3 {
+            font-size: 24px;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .reviews-hero h1 {
+                font-size: 32px;
+            }
+            
+            .rating-summary {
+                grid-template-columns: 1fr;
+            }
+            
+            .rating-number {
+                font-size: 48px;
+            }
+            
+            .write-review-section {
+                padding: 30px 20px;
+            }
+            
+            .review-form {
+                padding: 25px;
+            }
+            
+            .reviewer-info {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .review-header {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span>
+                    <i class="fas fa-phone"></i> 
+                    <a href="tel:+254721761014" class="contact-link">+254721761014</a>
+                </span>
+                <span>
+                    <i class="fas fa-envelope"></i> 
+                    <a href="mailto:leonardolekenta@gmail.com" class="contact-link">leonardolekenta@gmail.com</a>
+                </span>
+            </div>
+            <div class="top-right">
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="sw">Swahili</option>
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
+                        <option value="de">Deutsch</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <div class="social-links">
+                    <a href="index.html#contact" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html#contact" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="index.html#contact" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/254721761014" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">OLARE GIFT SHOP</a></div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html">FAQ</a></li>
+                <li><a href="reviews.html" class="active">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Reviews Hero -->
+    <section class="reviews-hero">
+        <h1>Customer Reviews</h1>
+        <p>See what our customers say about their Olare Gift Shop experience</p>
+    </section>
+
+    <!-- Reviews Content -->
+    <div class="reviews-container">
+        
+        <!-- Overall Rating Summary -->
+        <div class="rating-summary">
+            <div class="rating-overview">
+                <div class="rating-number">4.9</div>
+                <div class="rating-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                </div>
+                <div class="rating-count">Based on customer feedback</div>
+            </div>
+            <div class="rating-bars">
+                <div class="rating-bar-item">
+                    <div class="rating-bar-label">
+                        <span>5</span>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-bar-container">
+                        <div class="rating-bar-fill" style="width: 85%"></div>
+                    </div>
+                    <div class="rating-bar-count">85%</div>
+                </div>
+                <div class="rating-bar-item">
+                    <div class="rating-bar-label">
+                        <span>4</span>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-bar-container">
+                        <div class="rating-bar-fill" style="width: 12%"></div>
+                    </div>
+                    <div class="rating-bar-count">12%</div>
+                </div>
+                <div class="rating-bar-item">
+                    <div class="rating-bar-label">
+                        <span>3</span>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-bar-container">
+                        <div class="rating-bar-fill" style="width: 2%"></div>
+                    </div>
+                    <div class="rating-bar-count">2%</div>
+                </div>
+                <div class="rating-bar-item">
+                    <div class="rating-bar-label">
+                        <span>2</span>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-bar-container">
+                        <div class="rating-bar-fill" style="width: 1%"></div>
+                    </div>
+                    <div class="rating-bar-count">1%</div>
+                </div>
+                <div class="rating-bar-item">
+                    <div class="rating-bar-label">
+                        <span>1</span>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="rating-bar-container">
+                        <div class="rating-bar-fill" style="width: 0%"></div>
+                    </div>
+                    <div class="rating-bar-count">0%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Write Review CTA -->
+        <div class="write-review-section">
+            <h2>Share Your Experience</h2>
+            <p>Purchased from us? We'd love to hear about your experience!</p>
+            <button class="btn btn-primary" onclick="toggleReviewForm()">
+                <i class="fas fa-pen"></i> Write a Review
+            </button>
+        </div>
+
+        <!-- Review Form -->
+        <div class="review-form" id="reviewForm">
+            <h3>Write Your Review</h3>
+            <form onsubmit="submitReview(event)">
+                <div class="form-group">
+                    <label>Your Rating *</label>
+                    <div class="star-rating" id="starRating">
+                        <i class="far fa-star" data-rating="1" onclick="setRating(1)"></i>
+                        <i class="far fa-star" data-rating="2" onclick="setRating(2)"></i>
+                        <i class="far fa-star" data-rating="3" onclick="setRating(3)"></i>
+                        <i class="far fa-star" data-rating="4" onclick="setRating(4)"></i>
+                        <i class="far fa-star" data-rating="5" onclick="setRating(5)"></i>
+                    </div>
+                    <input type="hidden" id="ratingValue" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewName">Your Name *</label>
+                    <input type="text" id="reviewName" required placeholder="John Doe">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewEmail">Email Address *</label>
+                    <input type="email" id="reviewEmail" required placeholder="john@example.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewLocation">Location</label>
+                    <input type="text" id="reviewLocation" placeholder="City, Country">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewProduct">Product Purchased (Optional)</label>
+                    <select id="reviewProduct">
+                        <option value="">Select a product</option>
+                        <option value="Traditional Beadwork">Traditional Beadwork</option>
+                        <option value="African Masks">African Masks</option>
+                        <option value="Wood Carvings">Wood Carvings</option>
+                        <option value="Traditional Textiles">Traditional Textiles</option>
+                        <option value="Musical Instruments">Musical Instruments</option>
+                        <option value="Handwoven Baskets">Handwoven Baskets</option>
+                        <option value="Custom Order">Custom Order</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewTitle">Review Title *</label>
+                    <input type="text" id="reviewTitle" required placeholder="Sum up your experience">
+                </div>
+                
+                <div class="form-group">
+                    <label for="reviewText">Your Review *</label>
+                    <textarea id="reviewText" required placeholder="Share details about your experience with Olare Gift Shop..."></textarea>
+                </div>
+                
+                <div class="review-note">
+                    <i class="fas fa-info-circle"></i> 
+                    <strong>Note:</strong> Your review will be sent to our team via WhatsApp for verification before being published. We review all submissions to ensure authenticity and quality.
+                </div>
+                
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 20px;">
+                    <i class="fab fa-whatsapp"></i> Submit Review via WhatsApp
+                </button>
+            </form>
+        </div>
+
+        <!-- Reviews Controls -->
+        <div class="reviews-controls">
+            <h3 style="color: var(--primary-color); margin: 0;">Customer Reviews</h3>
+            <select id="sortReviews" onchange="sortReviews()">
+                <option value="recent">Most Recent</option>
+                <option value="highest">Highest Rating</option>
+                <option value="lowest">Lowest Rating</option>
+                <option value="helpful">Most Helpful</option>
+            </select>
+        </div>
+
+        <!-- Sample Reviews (You can add real reviews later) -->
+        <div class="reviews-list" id="reviewsList">
+            
+            <!-- Sample Review 1 -->
+            <div class="review-card" data-rating="5" data-date="2024-01-20">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">SM</div>
+                        <div class="reviewer-details">
+                            <h4>Sarah Mitchell</h4>
+                            <div class="reviewer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Nairobi, Kenya</span>
+                            </div>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i> Verified Purchase
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-date">January 20, 2024</div>
+                    </div>
+                </div>
+                
+                <div class="review-content">
+                    <div class="review-title">Absolutely Stunning Craftsmanship!</div>
+                    <p class="review-text">I purchased a beautiful Maasai beaded necklace from Olare Gift Shop and I couldn't be happier! The quality is exceptional and you can really tell it's handmade with love. The colors are vibrant and the craftsmanship is impeccable. I also love knowing that my purchase supports local artisans directly. Will definitely be back for more!</p>
+                </div>
+                
+                <div class="review-product">
+                    <i class="fas fa-gem"></i>
+                    <span>Traditional Beadwork</span>
+                </div>
+                
+                <div class="review-helpful">
+                    <span style="color: var(--text-color); font-size: 14px;">Was this helpful?</span>
+                    <button class="helpful-btn">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Yes (12)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sample Review 2 -->
+            <div class="review-card" data-rating="5" data-date="2024-01-18">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">JK</div>
+                        <div class="reviewer-details">
+                            <h4>John Kamau</h4>
+                            <div class="reviewer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Mombasa, Kenya</span>
+                            </div>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i> Verified Purchase
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-date">January 18, 2024</div>
+                    </div>
+                </div>
+                
+                <div class="review-content">
+                    <div class="review-title">Perfect Gifts for Overseas Family</div>
+                    <p class="review-text">I ordered several wood carvings to send to my family abroad. The staff at Olare Gift Shop were incredibly helpful in selecting appropriate pieces and handled all the shipping arrangements professionally. Everything arrived safely and my family absolutely loves them! The packaging was excellent and the items were exactly as described. Highly recommend!</p>
+                </div>
+                
+                <div class="review-product">
+                    <i class="fas fa-chess-rook"></i>
+                    <span>Wood Carvings</span>
+                </div>
+                
+                <div class="review-helpful">
+                    <span style="color: var(--text-color); font-size: 14px;">Was this helpful?</span>
+                    <button class="helpful-btn">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Yes (8)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sample Review 3 -->
+            <div class="review-card" data-rating="5" data-date="2024-01-15">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">ER</div>
+                        <div class="reviewer-details">
+                            <h4>Emily Rodriguez</h4>
+                            <div class="reviewer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Madrid, Spain</span>
+                            </div>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i> Verified Purchase
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-date">January 15, 2024</div>
+                    </div>
+                </div>
+                
+                <div class="review-content">
+                    <div class="review-title">Authentic Art, Excellent Service</div>
+                    <p class="review-text">As someone who collects African art, I can confidently say Olare Gift Shop offers truly authentic pieces. I purchased an African mask and the detail is extraordinary. The communication throughout the purchase process was excellent, and despite shipping to Europe, the item arrived quickly and in perfect condition. The story behind my mask and the artisan who created it makes it even more special. Thank you!</p>
+                </div>
+                
+                <div class="review-product">
+                    <i class="fas fa-masks-theater"></i>
+                    <span>African Masks</span>
+                </div>
+                
+                <div class="review-helpful">
+                    <span style="color: var(--text-color); font-size: 14px;">Was this helpful?</span>
+                    <button class="helpful-btn">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Yes (15)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sample Review 4 -->
+            <div class="review-card" data-rating="5" data-date="2024-01-12">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">MA</div>
+                        <div class="reviewer-details">
+                            <h4>Michael Anderson</h4>
+                            <div class="reviewer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>New York, USA</span>
+                            </div>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i> Verified Purchase
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-date">January 12, 2024</div>
+                    </div>
+                </div>
+                
+                <div class="review-content">
+                    <div class="review-title">Custom Order Exceeded Expectations</div>
+                    <p class="review-text">I commissioned a custom wood carving for my office, and the team at Olare Gift Shop was fantastic to work with. They kept me updated throughout the process with photos, and the final piece is absolutely magnificent. The artisan captured exactly what I envisioned. It's now the centerpiece of my office and everyone who sees it asks where I got it. Worth every penny!</p>
+                </div>
+                
+                <div class="review-product">
+                    <i class="fas fa-pencil-ruler"></i>
+                    <span>Custom Order</span>
+                </div>
+                
+                <div class="review-helpful">
+                    <span style="color: var(--text-color); font-size: 14px;">Was this helpful?</span>
+                    <button class="helpful-btn">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Yes (20)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sample Review 5 -->
+            <div class="review-card" data-rating="4" data-date="2024-01-10">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">LW</div>
+                        <div class="reviewer-details">
+                            <h4>Lisa Wang</h4>
+                            <div class="reviewer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Singapore</span>
+                            </div>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i> Verified Purchase
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                        </div>
+                        <div class="review-date">January 10, 2024</div>
+                    </div>
+                </div>
+                
+                <div class="review-content">
+                    <div class="review-title">Beautiful Baskets, Slight Shipping Delay</div>
+                    <p class="review-text">The handwoven baskets I ordered are absolutely beautiful and perfect for my home. The craftsmanship is excellent and they're very practical. Shipping took a bit longer than expected (about 3 weeks to Singapore), but the items were well worth the wait. The team kept me informed throughout. Would definitely order again!</p>
+                </div>
+                
+                <div class="review-product">
+                    <i class="fas fa-shopping-basket"></i>
+                    <span>Handwoven Baskets</span>
+                </div>
+                
+                <div class="review-helpful">
+                    <span style="color: var(--text-color); font-size: 14px;">Was this helpful?</span>
+                    <button class="helpful-btn">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Yes (6)</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Sample Review 6 -->
+            <div class="review-card" data-rating="5" data-date="2024-01-08">
+                <div class="review-header">
+                    <div class="reviewer-info">
+                        <div class="reviewer-avatar">DN</div>
+                        <div class="reviewer-details">
+                            <h4>David Ngugi</h4>
+                            <div class="reviewer-location">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Kisumu, Kenya</span>
+                            </div>
+                            <span class="verified-badge">
+                                <i class="fas fa-check-circle"></i> Verified Purchase
+                            </span>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="review-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="review-date">January 8, 2024</div>
+                    </div>
+                </div>
+                
+                <div class="review-content">
+                    <div class="review-title">Supporting Local Artisans</div>
+                    <p class="review-text">What I love most about Olare Gift Shop is their commitment to supporting local artisans. I bought a traditional drum and learned about the artisan who made it. Knowing my purchase directly helps a family makes the piece even more meaningful. The drum itself is beautifully crafted and has great sound. This is how business should be done!</p>
+                </div>
+                
+                <div class="review-product">
+                    <i class="fas fa-drum"></i>
+                    <span>Musical Instruments</span>
+                </div>
+                
+                <div class="review-helpful">
+                    <span style="color: var(--text-color); font-size: 14px;">Was this helpful?</span>
+                    <button class="helpful-btn">
+                        <i class="far fa-thumbs-up"></i>
+                        <span>Yes (18)</span>
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Load More Button -->
+        <div style="text-align: center; margin: 40px 0;">
+            <button class="btn btn-outline" onclick="alert('Feature coming soon! More reviews will be displayed.')">
+                <i class="fas fa-plus"></i> Load More Reviews
+            </button>
+        </div>
+
+        <!-- Back to Home -->
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="index.html" class="btn btn-primary">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Olare Gift Shop</h3>
+                <p>Your premier destination for authentic African art and handcrafted treasures. Celebrating 25 years of excellence in preserving African cultural heritage.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> <a href="tel:+254721761014">+254721761014</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:leonardolekenta@gmail.com">leonardolekenta@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Olare+Gift+Shop/@-1.1673324,35.7427611,689m" target="_blank">View on Google Maps</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="footer-social">
+                    <a href="index.html#contact" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html#contact" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="index.html#contact" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/254721761014" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Olare Gift Shop. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: #ff6b6b;"></i> in Africa</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Review form toggle
+        function toggleReviewForm() {
+            const form = document.getElementById('reviewForm');
+            form.classList.toggle('active');
+            if (form.classList.contains('active')) {
+                form.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        // Star rating functionality
+        let selectedRating = 0;
+
+        function setRating(rating) {
+            selectedRating = rating;
+            document.getElementById('ratingValue').value = rating;
+            
+            const stars = document.querySelectorAll('#starRating i');
+            stars.forEach((star, index) => {
+                if (index < rating) {
+                    star.classList.remove('far');
+                    star.classList.add('fas', 'active');
+                } else {
+                    star.classList.remove('fas', 'active');
+                    star.classList.add('far');
+                }
+            });
+        }
+
+        // Submit review via WhatsApp
+        function submitReview(event) {
+            event.preventDefault();
+            
+            const name = document.getElementById('reviewName').value;
+            const email = document.getElementById('reviewEmail').value;
+            const location = document.getElementById('reviewLocation').value;
+            const product = document.getElementById('reviewProduct').value;
+            const title = document.getElementById('reviewTitle').value;
+            const reviewText = document.getElementById('reviewText').value;
+            const rating = selectedRating;
+            
+            if (rating === 0) {
+                alert('Please select a star rating before submitting.');
+                return;
+            }
+            
+            // Create WhatsApp message
+            const stars = '⭐'.repeat(rating);
+            const message = `NEW REVIEW SUBMISSION%0A%0A` +
+                          `Rating: ${stars}%0A` +
+                          `Name: ${name}%0A` +
+                          `Email: ${email}%0A` +
+                          `Location: ${location || 'Not specified'}%0A` +
+                          `Product: ${product || 'Not specified'}%0A%0A` +
+                          `Title: ${title}%0A%0A` +
+                          `Review:%0A${reviewText}`;
+            
+            // Open WhatsApp
+            window.open(`https://wa.me/254721761014?text=${message}`, '_blank');
+            
+            // Reset form
+            document.getElementById('reviewForm').reset();
+            selectedRating = 0;
+            setRating(0);
+            
+            alert('Thank you for your review! You will be redirected to WhatsApp to submit it.');
+            
+            // Hide form
+            setTimeout(() => {
+                document.getElementById('reviewForm').classList.remove('active');
+            }, 1000);
+        }
+
+        // Sort reviews functionality
+        function sortReviews() {
+            const sortValue = document.getElementById('sortReviews').value;
+            const reviewsList = document.getElementById('reviewsList');
+            const reviews = Array.from(reviewsList.children);
+            
+            reviews.sort((a, b) => {
+                if (sortValue === 'recent') {
+                    return new Date(b.dataset.date) - new Date(a.dataset.date);
+                } else if (sortValue === 'highest') {
+                    return parseInt(b.dataset.rating) - parseInt(a.dataset.rating);
+                } else if (sortValue === 'lowest') {
+                    return parseInt(a.dataset.rating) - parseInt(b.dataset.rating);
+                }
+                return 0;
+            });
+            
+            reviews.forEach(review => reviewsList.appendChild(review));
+        }
+    </script>
+</body>
+</html>

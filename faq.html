@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Olare Gift Shop FAQ - Common questions about ordering, shipping, payments, custom orders, and product authenticity. Get answers to your questions.">
+    <meta name="keywords" content="FAQ, African art questions, shipping Kenya, custom orders, payment methods, authenticity guarantee">
+    
+    <title>FAQ - Olare Gift Shop | Frequently Asked Questions</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        /* FAQ-specific styles */
+        .faq-hero {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            padding: 100px 20px 60px;
+            color: white;
+            text-align: center;
+        }
+        
+        .faq-hero h1 {
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .faq-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        .faq-search {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 40px;
+        }
+        
+        .faq-search input {
+            width: 100%;
+            padding: 15px 20px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+        
+        .faq-search input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+        }
+        
+        .faq-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+        
+        .faq-category-btn {
+            padding: 15px 20px;
+            background: var(--light-color);
+            border: 2px solid transparent;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+        
+        .faq-category-btn:hover {
+            background: var(--primary-color);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .faq-category-btn.active {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--accent-color);
+        }
+        
+        .faq-section {
+            margin-bottom: 40px;
+        }
+        
+        .faq-section h2 {
+            font-size: 28px;
+            color: var(--primary-color);
+            margin-bottom: 25px;
+            padding-bottom: 10px;
+            border-bottom: 3px solid var(--accent-color);
+        }
+        
+        .faq-item {
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+        
+        .faq-item:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq-question {
+            padding: 20px 25px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            color: var(--dark-color);
+            transition: background 0.3s;
+        }
+        
+        .faq-question:hover {
+            background: var(--light-color);
+        }
+        
+        .faq-question i {
+            color: var(--primary-color);
+            font-size: 20px;
+            transition: transform 0.3s;
+        }
+        
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 25px;
+        }
+        
+        .faq-item.active .faq-answer {
+            max-height: 1000px;
+            padding: 0 25px 20px 25px;
+            transition: max-height 0.5s ease-in;
+        }
+        
+        .faq-answer p {
+            color: var(--text-color);
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+        
+        .faq-answer ul, .faq-answer ol {
+            margin: 15px 0 15px 25px;
+            color: var(--text-color);
+            line-height: 1.8;
+        }
+        
+        .faq-answer li {
+            margin-bottom: 10px;
+        }
+        
+        .faq-answer strong {
+            color: var(--primary-color);
+        }
+        
+        .faq-highlight {
+            background: var(--light-color);
+            border-left: 4px solid var(--accent-color);
+            padding: 15px;
+            margin: 15px 0;
+            border-radius: 5px;
+        }
+        
+        .faq-cta {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 40px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .faq-cta h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
+        }
+        
+        .faq-cta p {
+            font-size: 16px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-color);
+            display: none;
+        }
+        
+        .no-results i {
+            font-size: 64px;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+        
+        @media (max-width: 768px) {
+            .faq-hero h1 {
+                font-size: 32px;
+            }
+            
+            .faq-categories {
+                grid-template-columns: 1fr;
+            }
+            
+            .faq-section h2 {
+                font-size: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="contact-info">
+                <span>
+                    <i class="fas fa-phone"></i> 
+                    <a href="tel:+254721761014" class="contact-link">+254721761014</a>
+                </span>
+                <span>
+                    <i class="fas fa-envelope"></i> 
+                    <a href="mailto:leonardolekenta@gmail.com" class="contact-link">leonardolekenta@gmail.com</a>
+                </span>
+            </div>
+            <div class="top-right">
+                <div class="language-selector">
+                    <i class="fas fa-globe"></i>
+                    <select id="languageSelect" onchange="changeLanguage(this.value)">
+                        <option value="en">English</option>
+                        <option value="sw">Swahili</option>
+                        <option value="fr">Français</option>
+                        <option value="es">Español</option>
+                        <option value="de">Deutsch</option>
+                        <option value="zh">中文</option>
+                    </select>
+                </div>
+                <div class="social-links">
+                    <a href="index.html#contact" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html#contact" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="index.html#contact" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/254721761014" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo"><a href="index.html" style="color: inherit; text-decoration: none;">OLARE GIFT SHOP</a></div>
+            <div class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About</a></li>
+                <li><a href="index.html#products">Products</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="faq.html" class="active">FAQ</a></li>
+                <li><a href="reviews.html">Reviews</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- FAQ Hero -->
+    <section class="faq-hero">
+        <h1>Frequently Asked Questions</h1>
+        <p>Find answers to common questions about our products and services</p>
+    </section>
+
+    <!-- FAQ Content -->
+    <div class="faq-container">
+        
+        <!-- Search Box -->
+        <div class="faq-search">
+            <input type="text" id="faqSearch" placeholder="Search for answers..." onkeyup="searchFAQ()">
+        </div>
+
+        <!-- Category Filters -->
+        <div class="faq-categories">
+            <button class="faq-category-btn active" onclick="filterCategory('all')">All Questions</button>
+            <button class="faq-category-btn" onclick="filterCategory('ordering')">Ordering</button>
+            <button class="faq-category-btn" onclick="filterCategory('shipping')">Shipping</button>
+            <button class="faq-category-btn" onclick="filterCategory('products')">Products</button>
+            <button class="faq-category-btn" onclick="filterCategory('custom')">Custom Orders</button>
+        </div>
+
+        <!-- No Results Message -->
+        <div class="no-results" id="noResults">
+            <i class="fas fa-search"></i>
+            <h3>No results found</h3>
+            <p>Try searching with different keywords or browse all questions</p>
+        </div>
+
+        <!-- Ordering & Payment Section -->
+        <div class="faq-section" data-category="ordering">
+            <h2><i class="fas fa-shopping-cart"></i> Ordering & Payment</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do I place an order?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Placing an order with Olare Gift Shop is easy! You have several options:</p>
+                    <ol>
+                        <li><strong>WhatsApp:</strong> Click any "Inquire on WhatsApp" button on our website, or message us directly at +254721761014</li>
+                        <li><strong>Contact Form:</strong> Fill out the contact form on our website with your product inquiry</li>
+                        <li><strong>Email:</strong> Send us an email at leonardolekenta@gmail.com with the items you're interested in</li>
+                        <li><strong>Phone:</strong> Call us directly at +254721761014 to discuss your order</li>
+                        <li><strong>In Person:</strong> Visit our physical shop in Kenya (see our location on the map)</li>
+                    </ol>
+                    <p>Once you contact us, our team will assist you with product selection, pricing, and finalize your order details.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What payment methods do you accept?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept multiple payment methods for your convenience:</p>
+                    <ul>
+                        <li><strong>M-Pesa:</strong> Perfect for customers in Kenya</li>
+                        <li><strong>Credit/Debit Cards:</strong> Visa, Mastercard, American Express</li>
+                        <li><strong>PayPal:</strong> Ideal for international customers</li>
+                        <li><strong>Bank Transfer:</strong> Direct bank transfers accepted</li>
+                        <li><strong>Cash:</strong> For in-store purchases</li>
+                    </ul>
+                    <p>All online transactions are processed through secure payment gateways to protect your financial information.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is my payment information secure?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We take your security seriously:</p>
+                    <ul>
+                        <li>All payment processing is handled by certified, secure payment gateways</li>
+                        <li>We use SSL encryption to protect your data</li>
+                        <li>We never store your complete credit card information</li>
+                        <li>All transactions comply with international security standards (PCI DSS)</li>
+                    </ul>
+                    <p>Your financial information is safe with us.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you offer payment plans or installments?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>For larger custom orders or bulk purchases, we can discuss flexible payment arrangements. Contact us directly to discuss your specific situation and we'll work with you to find a solution that works.</p>
+                    <p>Typical arrangements include:</p>
+                    <ul>
+                        <li>50% deposit to begin work on custom orders</li>
+                        <li>Remaining balance due before shipping</li>
+                        <li>Special terms for corporate or bulk orders</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shipping & Delivery Section -->
+        <div class="faq-section" data-category="shipping">
+            <h2><i class="fas fa-shipping-fast"></i> Shipping & Delivery</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you ship internationally?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We ship worldwide. Over our 25 years in business, we've successfully delivered authentic African art to customers in over 50 countries across all continents.</p>
+                    <p>We have extensive experience with international shipping and customs procedures to ensure your items arrive safely.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How long does shipping take?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Shipping times vary based on destination and shipping method:</p>
+                    <ul>
+                        <li><strong>Within Kenya:</strong> 3-5 business days</li>
+                        <li><strong>East Africa:</strong> 5-10 business days</li>
+                        <li><strong>International (Standard):</strong> 7-21 business days</li>
+                        <li><strong>International (Express):</strong> 3-7 business days (additional cost)</li>
+                    </ul>
+                    <div class="faq-highlight">
+                        <p><strong>Note:</strong> Custom orders require additional production time (typically 2-4 weeks) before shipping begins.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How much does shipping cost?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Shipping costs are calculated based on:</p>
+                    <ul>
+                        <li>Destination country/region</li>
+                        <li>Package weight and dimensions</li>
+                        <li>Shipping speed (standard vs. express)</li>
+                        <li>Insurance value (for high-value items)</li>
+                    </ul>
+                    <p><strong>Contact us with your location and items of interest for an accurate shipping quote.</strong> We'll provide a detailed breakdown before you commit to purchase.</p>
+                    <p>We strive to offer competitive shipping rates and can often combine multiple items into one shipment to save on costs.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I track my order?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! All shipped orders include tracking:</p>
+                    <ul>
+                        <li>You'll receive a tracking number once your order ships</li>
+                        <li>Track your package in real-time through the courier's website</li>
+                        <li>We'll send updates at key milestones (shipped, in transit, delivered)</li>
+                        <li>You can contact us anytime for order status updates</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How are items packaged for shipping?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We take extreme care in packaging to ensure your items arrive in perfect condition:</p>
+                    <ul>
+                        <li><strong>Individual wrapping:</strong> Each piece is wrapped in protective materials</li>
+                        <li><strong>Cushioning:</strong> Multiple layers of bubble wrap and packing materials</li>
+                        <li><strong>Sturdy boxes:</strong> High-quality, appropriately-sized shipping boxes</li>
+                        <li><strong>Fragile markings:</strong> Clear labeling for careful handling</li>
+                        <li><strong>Insurance:</strong> All shipments are insured against damage or loss</li>
+                        <li><strong>Documentation:</strong> Proper customs declarations for international orders</li>
+                    </ul>
+                    <p>With 25 years of shipping experience, we know how to protect your treasures!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What if my item arrives damaged?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>While rare due to our careful packaging, if damage does occur:</p>
+                    <ol>
+                        <li><strong>Document immediately:</strong> Take photos of the packaging and damage</li>
+                        <li><strong>Contact us within 48 hours:</strong> Email or WhatsApp us with photos</li>
+                        <li><strong>Keep all packaging:</strong> Don't discard boxes or packing materials</li>
+                        <li><strong>We'll resolve it:</strong> Options include replacement, repair, or refund</li>
+                    </ol>
+                    <p>All shipments are insured, and we'll work quickly to make things right.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Products & Authenticity Section -->
+        <div class="faq-section" data-category="products">
+            <h2><i class="fas fa-certificate"></i> Products & Authenticity</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Are all your products handmade?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes, 100%!</strong> Every item in our collection is authentically handcrafted by skilled African artisans using traditional methods.</p>
+                    <p>We never sell mass-produced or machine-made items. Each piece is:</p>
+                    <ul>
+                        <li>Created by hand using traditional techniques</li>
+                        <li>Made by artisans we know personally and work with directly</li>
+                        <li>Unique – no two pieces are exactly identical</li>
+                        <li>Crafted with natural materials</li>
+                        <li>Representative of authentic African cultural heritage</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How can I verify authenticity?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Signs of authentic handcrafted items:</p>
+                    <ul>
+                        <li><strong>Slight variations:</strong> Unlike factory items, handmade pieces show natural variations</li>
+                        <li><strong>Tool marks:</strong> Evidence of hand carving or crafting</li>
+                        <li><strong>Natural materials:</strong> Real wood grain, authentic beads, genuine leather</li>
+                        <li><strong>Weight and feel:</strong> Substantial, quality materials</li>
+                        <li><strong>Craftsmanship details:</strong> Attention to detail that machines can't replicate</li>
+                    </ul>
+                    <p>We also provide:</p>
+                    <ul>
+                        <li>Certificate of Authenticity (upon request)</li>
+                        <li>Information about the artisan who created your piece</li>
+                        <li>Details about materials and techniques used</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What materials are used in your products?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We use only natural, sustainably-sourced materials:</p>
+                    <ul>
+                        <li><strong>Wood:</strong> Ebony, mahogany, teak, olive wood, mpingo, and other African hardwoods</li>
+                        <li><strong>Beads:</strong> High-quality glass beads in traditional colors</li>
+                        <li><strong>Leather:</strong> Genuine leather for backing and accessories</li>
+                        <li><strong>Natural fibers:</strong> Sisal, banana fiber, palm leaves for baskets</li>
+                        <li><strong>Stone:</strong> Soapstone and other carved stones</li>
+                        <li><strong>Metals:</strong> Brass, copper for decorative elements</li>
+                        <li><strong>Fabrics:</strong> Cotton, bark cloth for traditional textiles</li>
+                    </ul>
+                    <p>All materials are ethically sourced with respect for environmental sustainability.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Are your products sustainably sourced?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! Sustainability is core to our values:</p>
+                    <ul>
+                        <li>Wood comes from sustainably managed forests or reclaimed sources</li>
+                        <li>We use fallen trees and naturally deceased wood when possible</li>
+                        <li>Artisans follow traditional practices that respect nature</li>
+                        <li>We support reforestation initiatives</li>
+                        <li>All materials comply with environmental regulations</li>
+                        <li>We avoid endangered species and protected materials</li>
+                    </ul>
+                    <p>Our 25-year commitment to sustainability ensures these traditions continue for future generations.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I request specific colors or designs?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We love creating customized pieces. You can request:</p>
+                    <ul>
+                        <li>Specific color combinations in beadwork</li>
+                        <li>Custom sizes for wood carvings</li>
+                        <li>Particular animal or figure designs</li>
+                        <li>Corporate logos or themes (with traditional artistic interpretation)</li>
+                        <li>Personalized patterns or symbols</li>
+                    </ul>
+                    <p>Contact us to discuss your vision, and we'll work with our artisans to bring it to life while maintaining cultural authenticity.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Custom Orders Section -->
+        <div class="faq-section" data-category="custom">
+            <h2><i class="fas fa-pencil-ruler"></i> Custom Orders</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How do custom orders work?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our custom order process is straightforward:</p>
+                    <ol>
+                        <li><strong>Initial Contact:</strong> Reach out via WhatsApp, email, or phone with your idea</li>
+                        <li><strong>Consultation:</strong> We discuss your vision, materials, size, and design details</li>
+                        <li><strong>Artisan Matching:</strong> We connect you with the best artisan for your project</li>
+                        <li><strong>Quote:</strong> You receive a detailed price quote and timeline</li>
+                        <li><strong>Design Approval:</strong> We may provide sketches or samples for approval</li>
+                        <li><strong>Deposit:</strong> 50% deposit to begin work</li>
+                        <li><strong>Creation:</strong> Artisan crafts your piece (2-4 weeks typically)</li>
+                        <li><strong>Updates:</strong> We send progress photos during creation</li>
+                        <li><strong>Final Payment:</strong> Remaining balance due before shipping</li>
+                        <li><strong>Delivery:</strong> Your unique piece ships to you</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How long do custom orders take?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Timeline varies based on complexity:</p>
+                    <ul>
+                        <li><strong>Simple customization:</strong> (color changes, minor modifications) 1-2 weeks</li>
+                        <li><strong>Standard custom pieces:</strong> 2-4 weeks</li>
+                        <li><strong>Large or complex items:</strong> 4-8 weeks</li>
+                        <li><strong>Bulk orders:</strong> 6-12 weeks depending on quantity</li>
+                    </ul>
+                    <p>We'll give you an accurate timeline during the consultation. Rush orders may be possible for additional fees.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Is there a minimum order for custom pieces?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>No strict minimum! We accommodate orders of all sizes:</p>
+                    <ul>
+                        <li><strong>Individual pieces:</strong> Single custom items welcome</li>
+                        <li><strong>Small sets:</strong> Perfect for gifts or collections</li>
+                        <li><strong>Bulk orders:</strong> Discounts available for larger quantities</li>
+                        <li><strong>Corporate orders:</strong> Special pricing for business clients</li>
+                    </ul>
+                    <p>Contact us regardless of order size – we're here to help!</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I cancel or modify a custom order?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Our policy depends on the stage of production:</p>
+                    <ul>
+                        <li><strong>Before work begins:</strong> Full refund minus processing fees</li>
+                        <li><strong>Work in progress:</strong> Modifications possible (may affect timeline/cost)</li>
+                        <li><strong>Near completion:</strong> Limited modification options</li>
+                        <li><strong>After completion:</strong> Custom orders are final</li>
+                    </ul>
+                    <p>We send progress updates and photos so you can request changes early in the process.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Returns & Exchanges Section -->
+        <div class="faq-section" data-category="ordering">
+            <h2><i class="fas fa-undo"></i> Returns & Exchanges</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>What is your return policy?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We stand behind the quality of our products. Our return policy:</p>
+                    <ul>
+                        <li><strong>Damaged items:</strong> Full refund or replacement if item arrives damaged</li>
+                        <li><strong>Not as described:</strong> Return accepted if item significantly differs from description</li>
+                        <li><strong>Change of mind:</strong> Contact us to discuss options</li>
+                        <li><strong>Custom orders:</strong> Final sale (non-refundable) unless damaged</li>
+                    </ul>
+                    <p><strong>Contact us within 7 days of delivery</strong> to initiate a return or exchange.</p>
+                    <div class="faq-highlight">
+                        <p><strong>Note:</strong> Customer is responsible for return shipping costs unless item is defective or damaged.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I exchange an item?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, exchanges are possible:</p>
+                    <ul>
+                        <li>Contact us within 7 days of delivery</li>
+                        <li>Item must be unused and in original condition</li>
+                        <li>Exchange for different size, color, or similar-value item</li>
+                        <li>We'll guide you through the exchange process</li>
+                    </ul>
+                    <p>Note: Due to the handmade nature of our items, exact replacements may not be available, but we'll find you something comparable or better.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- About Our Business Section -->
+        <div class="faq-section" data-category="products">
+            <h2><i class="fas fa-info-circle"></i> About Our Business</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>How long have you been in business?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Olare Gift Shop has been serving customers for <strong>over 25 years</strong> (since 1999). We've built lasting relationships with artisan communities and customers worldwide, establishing ourselves as a trusted source for authentic African art and crafts.</p>
+                    <p>Our quarter-century of experience means:</p>
+                    <ul>
+                        <li>Deep knowledge of African art and traditions</li>
+                        <li>Established relationships with skilled artisans</li>
+                        <li>Expertise in international shipping and customs</li>
+                        <li>Proven track record of quality and customer satisfaction</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you work directly with artisans?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p><strong>Yes!</strong> Direct partnership with artisans is fundamental to our business:</p>
+                    <ul>
+                        <li>We know our artisans personally – many have worked with us for years</li>
+                        <li>Fair trade practices ensure artisans receive equitable compensation</li>
+                        <li>No exploitative middlemen</li>
+                        <li>Ongoing support for artisan communities</li>
+                        <li>Investment in preserving traditional crafts</li>
+                    </ul>
+                    <p>When you buy from us, you directly support African families and communities.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Can I visit your physical shop?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Absolutely! We welcome visitors to our shop in Kenya.</p>
+                    <p><strong>Location:</strong> Find us on Google Maps (see our website for the exact location)</p>
+                    <p><strong>Hours:</strong></p>
+                    <ul>
+                        <li>Monday - Saturday: 9:00 AM - 6:00 PM</li>
+                        <li>Sunday: 10:00 AM - 4:00 PM</li>
+                    </ul>
+                    <p><strong>What to expect:</strong></p>
+                    <ul>
+                        <li>Wide selection of handcrafted items</li>
+                        <li>Knowledgeable staff to assist you</li>
+                        <li>Stories about artisans and their work</li>
+                        <li>Opportunity to discuss custom orders in person</li>
+                    </ul>
+                    <p>We recommend calling ahead for large groups or special requests.</p>
+                </div>
+            </div>
+
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    <span>Do you offer wholesale or bulk pricing?</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes! We work with:</p>
+                    <ul>
+                        <li><strong>Retailers:</strong> Wholesale pricing for shops and galleries</li>
+                        <li><strong>Hotels & Lodges:</strong> Bulk orders for gift shops</li>
+                        <li><strong>Corporate clients:</strong> Custom corporate gifts and awards</li>
+                        <li><strong>Event planners:</strong> Large quantity orders for weddings, conferences, etc.</li>
+                        <li><strong>Interior designers:</strong> Custom pieces for projects</li>
+                    </ul>
+                    <p>Contact us with your requirements for a customized quote. Volume discounts available.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Still Have Questions CTA -->
+        <div class="faq-cta">
+            <h3>Still Have Questions?</h3>
+            <p>Can't find the answer you're looking for? Our team is here to help!</p>
+            <div style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                <a href="https://wa.me/254721761014?text=Hello%2C%20I%20have%20a%20question" target="_blank" class="btn btn-primary">
+                    <i class="fab fa-whatsapp"></i> Chat on WhatsApp
+                </a>
+                <a href="index.html#contact" class="btn btn-secondary">
+                    <i class="fas fa-envelope"></i> Send Email
+                </a>
+            </div>
+        </div>
+
+        <!-- Back to Home -->
+        <div style="text-align: center; margin: 40px 0;">
+            <a href="index.html" class="btn btn-outline">
+                <i class="fas fa-home"></i> Back to Home
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Olare Gift Shop</h3>
+                <p>Your premier destination for authentic African art and handcrafted treasures. Celebrating 25 years of excellence in preserving African cultural heritage.</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#about">About Us</a></li>
+                    <li><a href="index.html#products">Products</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <ul class="footer-contact">
+                    <li><i class="fas fa-phone"></i> <a href="tel:+254721761014">+254721761014</a></li>
+                    <li><i class="fas fa-envelope"></i> <a href="mailto:leonardolekenta@gmail.com">leonardolekenta@gmail.com</a></li>
+                    <li><i class="fas fa-map-marker-alt"></i> <a href="https://www.google.com/maps/place/Olare+Gift+Shop/@-1.1673324,35.7427611,689m" target="_blank">View on Google Maps</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="footer-social">
+                    <a href="index.html#contact" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="index.html#contact" title="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="index.html#contact" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="https://wa.me/254721761014" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Olare Gift Shop. All rights reserved. | Crafted with <i class="fas fa-heart" style="color: #ff6b6b;"></i> in Africa</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // FAQ-specific JavaScript
+        function toggleFAQ(element) {
+            const faqItem = element.parentElement;
+            const isActive = faqItem.classList.contains('active');
+            
+            // Close all other FAQs
+            document.querySelectorAll('.faq-item').forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Toggle current FAQ
+            if (!isActive) {
+                faqItem.classList.add('active');
+            }
+        }
+
+        function filterCategory(category) {
+            // Update active button
+            document.querySelectorAll('.faq-category-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            event.target.classList.add('active');
+            
+            // Show/hide sections
+            const sections = document.querySelectorAll('.faq-section');
+            let visibleCount = 0;
+            
+            sections.forEach(section => {
+                if (category === 'all' || section.dataset.category === category) {
+                    section.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    section.style.display = 'none';
+                }
+            });
+            
+            // Show/hide no results message
+            document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+
+        function searchFAQ() {
+            const searchTerm = document.getElementById('faqSearch').value.toLowerCase();
+            const faqItems = document.querySelectorAll('.faq-item');
+            let visibleCount = 0;
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question span').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                    visibleCount++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Show/hide sections based on visible items
+            document.querySelectorAll('.faq-section').forEach(section => {
+                const visibleItems = section.querySelectorAll('.faq-item[style="display: block;"]').length;
+                section.style.display = visibleItems > 0 ? 'block' : 'none';
+            });
+            
+            // Show/hide no results message
+            document.getElementById('noResults').style.display = visibleCount === 0 ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
