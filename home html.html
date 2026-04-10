@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olare Gift Shop - Home</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Nike-Style Header -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="location-bar">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="headerLocation">Kenya</span>
+            </div>
+            <div class="header-links">
+                <a href="blog.html">Stories</a>
+                <a href="faq.html">Help</a>
+                <a href="reviews.html">Reviews</a>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="home.html">OLARE</a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="home.html" class="active">Home</a></li>
+                <li><a href="shop.html">Shop</a></li>
+                <li><a href="blog.html">Stories</a></li>
+                <li><a href="#about">About</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <!-- Search -->
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search" class="search-input">
+                </div>
+                
+                <!-- Cart -->
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                
+                <!-- Mobile Menu Toggle -->
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section (Large Image Banner - Nike Style) -->
+    <section class="hero-banner">
+        <div class="hero-image">
+            <!-- Placeholder gradient - replace with actual shop photo -->
+            <div class="hero-placeholder">
+                <i class="fas fa-store"></i>
+            </div>
+        </div>
+        <div class="hero-text">
+            <h1>WHERE TRADITION<br>MEETS ARTISTRY</h1>
+            <p>Handcrafted African treasures by master artisans</p>
+            <button class="hero-cta" onclick="window.location.href='shop.html'">
+                Shop Now
+            </button>
+        </div>
+    </section>
+
+    <!-- Featured Categories (Nike-Style Cards) -->
+    <section class="featured-section">
+        <h2 class="section-title">Featured Collections</h2>
+        
+        <div class="category-grid">
+            <div class="category-card">
+                <div class="category-image">
+                    <i class="fas fa-gem"></i>
+                </div>
+                <div class="category-info">
+                    <h3>Beadwork</h3>
+                    <p>Traditional Maasai craftsmanship</p>
+                    <a href="shop.html?category=beadwork" class="category-link">
+                        Shop <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-image">
+                    <i class="fas fa-chess-rook"></i>
+                </div>
+                <div class="category-info">
+                    <h3>Wood Carvings</h3>
+                    <p>Hand-carved sculptures</p>
+                    <a href="shop.html?category=wood" class="category-link">
+                        Shop <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="category-card">
+                <div class="category-image">
+                    <i class="fas fa-masks-theater"></i>
+                </div>
+                <div class="category-info">
+                    <h3>African Masks</h3>
+                    <p>Authentic tribal art</p>
+                    <a href="shop.html?category=masks" class="category-link">
+                        Shop <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Showcase (Image Gallery) -->
+    <section class="shop-showcase">
+        <div class="showcase-grid">
+            <div class="showcase-item large">
+                <div class="showcase-image">
+                    <i class="fas fa-store"></i>
+                </div>
+                <div class="showcase-overlay">
+                    <h3>Visit Our Shop</h3>
+                    <p>Experience authentic African art</p>
+                </div>
+            </div>
+            
+            <div class="showcase-item">
+                <div class="showcase-image">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <div class="showcase-overlay">
+                    <h3>Handcrafted</h3>
+                    <p>By local artisans</p>
+                </div>
+            </div>
+            
+            <div class="showcase-item">
+                <div class="showcase-image">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <div class="showcase-overlay">
+                    <h3>Authentic</h3>
+                    <p>25 years of excellence</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>25 YEARS OF<br>AFRICAN EXCELLENCE</h2>
+                <p>Since 1999, Olare Gift Shop has been the premier destination for authentic African art. We work directly with master artisans to bring you handcrafted treasures that celebrate our rich cultural heritage.</p>
+                <button class="about-cta" onclick="window.location.href='blog.html'">
+                    Our Story
+                </button>
+            </div>
+            <div class="about-image">
+                <i class="fas fa-users"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values Section (Nike-Style) -->
+    <section class="values-section">
+        <div class="values-grid">
+            <div class="value-item">
+                <i class="fas fa-handshake"></i>
+                <h3>Fair Trade</h3>
+                <p>Direct partnership with artisans ensuring fair compensation</p>
+            </div>
+            
+            <div class="value-item">
+                <i class="fas fa-leaf"></i>
+                <h3>Sustainable</h3>
+                <p>Eco-friendly materials and traditional methods</p>
+            </div>
+            
+            <div class="value-item">
+                <i class="fas fa-globe-africa"></i>
+                <h3>Worldwide</h3>
+                <p>Shipping authentic African art globally</p>
+            </div>
+            
+            <div class="value-item">
+                <i class="fas fa-award"></i>
+                <h3>Quality</h3>
+                <p>Each piece inspected for excellence</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+        <div class="cta-content">
+            <h2>DISCOVER YOUR PERFECT PIECE</h2>
+            <p>Explore our curated collection of authentic African art</p>
+            <button class="cta-button-large" onclick="window.location.href='shop.html'">
+                SHOP NOW
+            </button>
+        </div>
+    </section>
+
+    <!-- Footer (Nike-Style) -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SHOP</h4>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=beadwork">Beadwork</a></li>
+                    <li><a href="shop.html?category=wood">Wood Carvings</a></li>
+                    <li><a href="shop.html?category=masks">Masks</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#shipping">Shipping</a></li>
+                    <li><a href="#returns">Returns</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>ABOUT</h4>
+                <ul>
+                    <li><a href="blog.html">Our Story</a></li>
+                    <li><a href="blog.html">Artisans</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>CONTACT</h4>
+                <ul>
+                    <li><a href="tel:+254721761014">+254 721 761 014</a></li>
+                    <li><a href="mailto:leonardolekenta@gmail.com">leonardolekenta@gmail.com</a></li>
+                    <li><a href="https://wa.me/254721761014" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="footerLocation">Kenya</span>
+            </div>
+            <p>&copy; 2024 Olare Gift Shop. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

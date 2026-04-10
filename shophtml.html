@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop - Olare Gift Shop</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Helvetica+Neue:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Header (Same as home.html) -->
+    <header class="main-header">
+        <div class="header-top">
+            <div class="location-bar">
+                <i class="fas fa-map-marker-alt"></i>
+                <span id="headerLocation">Kenya</span>
+            </div>
+            <div class="header-links">
+                <a href="blog.html">Stories</a>
+                <a href="faq.html">Help</a>
+                <a href="reviews.html">Reviews</a>
+            </div>
+        </div>
+        
+        <nav class="main-nav">
+            <div class="nav-logo">
+                <a href="home.html">OLARE</a>
+            </div>
+            
+            <ul class="nav-menu">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="shop.html" class="active">Shop</a></li>
+                <li><a href="blog.html">Stories</a></li>
+                <li><a href="home.html#about">About</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="productSearch" placeholder="Search products..." class="search-input">
+                </div>
+                
+                <a href="cart.html" class="cart-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                    <span class="cart-count" id="cartCount">0</span>
+                </a>
+                
+                <button class="mobile-menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Shop Hero -->
+    <section class="shop-hero">
+        <h1>HANDCRAFTED AFRICAN ART</h1>
+        <p>Authentic pieces by master artisans</p>
+    </section>
+
+    <!-- Filter & Sort Bar (Nike-Style) -->
+    <div class="filter-bar">
+        <div class="filter-left">
+            <button class="filter-btn active" data-filter="all">All Products</button>
+            <button class="filter-btn" data-filter="beadwork">Beadwork</button>
+            <button class="filter-btn" data-filter="wood">Wood Carvings</button>
+            <button class="filter-btn" data-filter="masks">Masks</button>
+            <button class="filter-btn" data-filter="textiles">Textiles</button>
+            <button class="filter-btn" data-filter="baskets">Baskets</button>
+        </div>
+        
+        <div class="filter-right">
+            <label>Sort by:</label>
+            <select id="sortSelect">
+                <option value="featured">Featured</option>
+                <option value="price-low">Price: Low to High</option>
+                <option value="price-high">Price: High to Low</option>
+                <option value="name">Name: A-Z</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Products Grid -->
+    <section class="products-section">
+        <div class="products-grid" id="productsGrid">
+            
+            <!-- Product 1 -->
+            <div class="product-card" data-category="beadwork" data-price="2500" data-name="Maasai Necklace">
+                <div class="product-image">
+                    <i class="fas fa-gem"></i>
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Maasai Beaded Necklace</h3>
+                    <p class="product-category">Traditional Beadwork</p>
+                    <p class="product-price">KSh 2,500</p>
+                    <button class="add-to-cart-btn" 
+                            data-id="1" 
+                            data-name="Maasai Beaded Necklace" 
+                            data-price="2500" 
+                            data-image="placeholder">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card" data-category="wood" data-price="5000" data-name="Elephant Sculpture">
+                <div class="product-image">
+                    <i class="fas fa-chess-rook"></i>
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Hand-Carved Elephant</h3>
+                    <p class="product-category">Wood Carvings</p>
+                    <p class="product-price">KSh 5,000</p>
+                    <button class="add-to-cart-btn" 
+                            data-id="2" 
+                            data-name="Hand-Carved Elephant" 
+                            data-price="5000" 
+                            data-image="placeholder">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card" data-category="masks" data-price="8000" data-name="Tribal Mask">
+                <div class="product-image">
+                    <i class="fas fa-masks-theater"></i>
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>African Tribal Mask</h3>
+                    <p class="product-category">Masks</p>
+                    <p class="product-price">KSh 8,000</p>
+                    <button class="add-to-cart-btn" 
+                            data-id="3" 
+                            data-name="African Tribal Mask" 
+                            data-price="8000" 
+                            data-image="placeholder">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card" data-category="wood" data-price="3500" data-name="Giraffe Carving">
+                <div class="product-image">
+                    <i class="fas fa-chess-rook"></i>
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Wooden Giraffe</h3>
+                    <p class="product-category">Wood Carvings</p>
+                    <p class="product-price">KSh 3,500</p>
+                    <button class="add-to-cart-btn" 
+                            data-id="4" 
+                            data-name="Wooden Giraffe" 
+                            data-price="3500" 
+                            data-image="placeholder">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card" data-category="beadwork" data-price="1500" data-name="Beaded Bracelet">
+                <div class="product-image">
+                    <i class="fas fa-gem"></i>
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Traditional Bracelet</h3>
+                    <p class="product-category">Beadwork</p>
+                    <p class="product-price">KSh 1,500</p>
+                    <button class="add-to-cart-btn" 
+                            data-id="5" 
+                            data-name="Traditional Bracelet" 
+                            data-price="1500" 
+                            data-image="placeholder">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card" data-category="textiles" data-price="4000" data-name="Kanga Fabric">
+                <div class="product-image">
+                    <i class="fas fa-tshirt"></i>
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Traditional Kanga</h3>
+                    <p class="product-category">Textiles</p>
+                    <p class="product-price">KSh 4,000</p>
+                    <button class="add-to-cart-btn" 
+                            data-id="6" 
+                            data-name="Traditional Kanga" 
+                            data-price="4000" 
+                            data-image="placeholder">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 7 -->
+            <div class="product-card" data-category="baskets" data-price="2000" data-name="Woven Basket">
+                <div class="product-image">
+                    <i class="fas fa-shopping-basket"></i>
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Handwoven Basket</h3>
+                    <p class="product-category">Baskets</p>
+                    <p class="product-price">KSh 2,000</p>
+                    <button class="add-to-cart-btn" 
+                            data-id="7" 
+                            data-name="Handwoven Basket" 
+                            data-price="2000" 
+                            data-image="placeholder">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+
+            <!-- Product 8 -->
+            <div class="product-card" data-category="wood" data-price="6500" data-name="Lion Sculpture">
+                <div class="product-image">
+                    <i class="fas fa-chess-rook"></i>
+                    <button class="quick-view-btn">Quick View</button>
+                </div>
+                <div class="product-info">
+                    <h3>Carved Lion</h3>
+                    <p class="product-category">Wood Carvings</p>
+                    <p class="product-price">KSh 6,500</p>
+                    <button class="add-to-cart-btn" 
+                            data-id="8" 
+                            data-name="Carved Lion" 
+                            data-price="6500" 
+                            data-image="placeholder">
+                        Add to Bag
+                    </button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>SHOP</h4>
+                <ul>
+                    <li><a href="shop.html">All Products</a></li>
+                    <li><a href="shop.html?category=beadwork">Beadwork</a></li>
+                    <li><a href="shop.html?category=wood">Wood Carvings</a></li>
+                    <li><a href="shop.html?category=masks">Masks</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>HELP</h4>
+                <ul>
+                    <li><a href="faq.html">FAQ</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#shipping">Shipping</a></li>
+                    <li><a href="#returns">Returns</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>ABOUT</h4>
+                <ul>
+                    <li><a href="blog.html">Our Story</a></li>
+                    <li><a href="blog.html">Artisans</a></li>
+                    <li><a href="reviews.html">Reviews</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h4>CONTACT</h4>
+                <ul>
+                    <li><a href="tel:+254721761014">+254 721 761 014</a></li>
+                    <li><a href="mailto:leonardolekenta@gmail.com">leonardolekenta@gmail.com</a></li>
+                    <li><a href="https://wa.me/254721761014" target="_blank">WhatsApp</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <div class="footer-location">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Kenya</span>
+            </div>
+            <p>&copy; 2024 Olare Gift Shop. All rights reserved.</p>
+            <div class="footer-social">
+                <a href="#"><i class="fab fa-facebook"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
